@@ -15,7 +15,13 @@ In Julia, we can build a conditional statement with `if`, `elseif`, `else`, and,
 grad_year = 2025
 
 # ╔═╡ f23ad629-6ab7-4e7b-bcb5-6488224e023b
-
+if grad_year < 2025
+	println("congrats")
+elseif grad_year == 2025
+	println("soon")
+else
+	println("enjoy the journey!")
+end
 
 # ╔═╡ a7be95cd-c9d0-4397-9da9-1c0cfc423f18
 md"""
@@ -23,7 +29,7 @@ We can include many `elseif` expressions, or none at all. The `else` keyword can
 """
 
 # ╔═╡ a4748c59-e1e2-408e-ae42-2dab937dc1ba
-divisor = 0
+divisor = 50
 
 # ╔═╡ 481683e5-7fef-4d95-8471-74a5426c3701
 if divisor > 0
@@ -55,7 +61,7 @@ which equates to
 """
 
 # ╔═╡ cb98bf28-6193-453e-91b5-a9aafa8b463b
-
+divisor != 0 ? 10 / divisor : "Zero div error!"
 
 # ╔═╡ 4801e0be-b866-478f-9cfd-0722322fcdcf
 md"""
@@ -69,7 +75,7 @@ which will return `true` if both `a` and `b` are true. If `a` is false, then the
 """
 
 # ╔═╡ c9a128a7-e97b-4bc3-a938-acc5bee136b4
-
+divisor != 0 && 10 / divisor
 
 # ╔═╡ 28773138-ff47-4b16-95b2-1a92651d04de
 md"""
@@ -77,7 +83,7 @@ When `a` is true, then Julia will evaluate `b`. Here we use it for a simpler `if
 """
 
 # ╔═╡ c514a744-b1f6-4fba-9df8-c8d25662003b
-
+π > 3 && "have a slice"
 
 # ╔═╡ 7e3e660d-9776-4a71-a40e-b57f20ab6dc1
 md"""
@@ -85,7 +91,7 @@ Also have a look at `||` for the logical **or** operation. It will short circuit
 """
 
 # ╔═╡ 1293f7b3-5431-44f6-be86-743feca0325e
-
+isfile("password.txt") || "That file doesn't exist"
 
 # ╔═╡ a2d94f49-66ab-4538-8fe4-4f531938544e
 md"""
@@ -114,6 +120,21 @@ number = 6
 
 # ╔═╡ e302ce00-7ca8-496d-8de8-6f96b9dd034e
 ## YOUR CODE GOES HERE
+if iseven(number)
+	println(number)
+else
+	print("odd")
+end
+
+
+# ╔═╡ f67bc587-962d-4e2a-bcf6-21fb0281492a
+#or could do this 
+
+if number % 2 == 0
+	number 
+else 
+	"odd"
+end
 
 # ╔═╡ 80f17424-6f4f-4ac7-9a94-9999b75a31e7
 md"""
@@ -122,6 +143,13 @@ md"""
 
 # ╔═╡ 274db092-4449-442d-9723-06241f7c924e
 ## YOUR CODE GOES HERE
+
+iseven(number) ? print(number) : print("odd")
+
+# ╔═╡ 156e47e0-d0e1-488d-a9bc-561bf04385b6
+#or 
+
+number % 2 == 0 ? number : "odd"
 
 # ╔═╡ Cell order:
 # ╟─cc18a366-138f-11ef-1a39-13a828c1e2cc
@@ -144,5 +172,7 @@ md"""
 # ╟─2367bd8d-9184-40b9-a1c6-c4d168ef4911
 # ╠═28149256-624c-4220-9fa1-ea608b59a7d9
 # ╠═e302ce00-7ca8-496d-8de8-6f96b9dd034e
+# ╠═f67bc587-962d-4e2a-bcf6-21fb0281492a
 # ╟─80f17424-6f4f-4ac7-9a94-9999b75a31e7
 # ╠═274db092-4449-442d-9723-06241f7c924e
+# ╠═156e47e0-d0e1-488d-a9bc-561bf04385b6

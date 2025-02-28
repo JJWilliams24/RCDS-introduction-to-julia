@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.38
+# v0.20.4
 
 using Markdown
 using InteractiveUtils
@@ -27,6 +27,9 @@ In Julia, we usually use `println()` to print. And in Pluto, we use `Shift+Enter
 
 
 # ╔═╡ fc8b2f88-77a6-4a84-91a1-3efbd0e92317
+println("hello world")
+
+# ╔═╡ 1c1efd7a-a4c1-4ed3-8089-856dbe5b980d
 
 
 # ╔═╡ c964fe22-b644-460c-8960-ec66abeb36ff
@@ -35,7 +38,7 @@ You can see the Julia docs *as-you-type* with the `Live Docs` feature of Pluto. 
 """
 
 # ╔═╡ 013179fa-3e31-4527-92d0-5c725e56b619
-
+print("Hello")
 
 # ╔═╡ 78ea3d9b-9273-4aa4-b5b7-5eb8154ea5ab
 
@@ -48,25 +51,22 @@ To assign variables, we need name, value and equals sign. Julia is a dynamic lan
 """
 
 # ╔═╡ 03b72a74-3428-40b7-94ac-fefe8d613aae
-
+answer = 42
 
 # ╔═╡ 71473247-35ee-4bed-95a6-e34162c9fcf2
+typeof(answer)
 
-
-# ╔═╡ 410611f5-8d46-4272-9a5b-4daf3705afeb
-
+# ╔═╡ fef50a59-fab0-4728-a08b-097c37ed3d01
+pi
 
 # ╔═╡ 8165649a-746b-48d3-a86e-8b100c4b2c08
-
+π
 
 # ╔═╡ 37f732d0-d24f-4e91-8c73-4b7ecfe0c6fe
+🐧= "pingu"
 
-
-# ╔═╡ cb15ebd0-5580-4b98-b116-df3d58833eca
-
-
-# ╔═╡ 791aa777-d195-434f-ab57-599f4d771d4f
-
+# ╔═╡ 08e8e8c1-b69c-4717-a71f-9ba815e29bb5
+🐱 = "Pan"
 
 # ╔═╡ 5f3bf493-96e4-47c4-a788-8d932f286886
 
@@ -80,8 +80,8 @@ md"""
 *Normally* in Julia, *outside* of a Pluto Notebook, we can re-assign new values to existing variables. Variables can even change type.
 """
 
-# ╔═╡ 3cefca52-2075-48b7-9835-4fc9f79e332d
-
+# ╔═╡ 791aa777-d195-434f-ab57-599f4d771d4f
+print(y)
 
 # ╔═╡ a86206f9-4924-4546-8f70-4e70d6b63203
 md"""
@@ -146,25 +146,25 @@ Here are the infix operators for basic arithmetic.
 """
 
 # ╔═╡ 62331f66-fca5-49de-8d17-88b2180fb639
-addition = 3 + 7
+addition = 1 + 0
 
 # ╔═╡ baa6e805-727d-4846-aaae-59b21ce9637e
-subtraction = 14 - 4
+subtraction = 14 - 225
 
 # ╔═╡ 45dfff43-8eb6-483a-8af4-5e4429c78875
-multiplication = 20 * 5
+multiplication = 10 * 100
 
 # ╔═╡ c9564bee-6a08-4278-9317-1eb2787a7545
-division = 100 / 10
+division = 100 / 1
 
 # ╔═╡ 6c4b845a-b4a0-4904-abbf-8f2bd44a5638
 exponentiation = 10 ^ 2
 
 # ╔═╡ c1781e49-49fb-4c18-867d-4e927f560563
-modulus = 101 % 2 # can also use mod()
+modulus = 101 % 1 # can also use mod()
 
 # ╔═╡ c9e299e5-9a35-4f41-957c-1c4e5e716ad9
-integer_div = 10 ÷ 3 # can also use div()
+integer_div = 10 ÷ 1 # can also use div()
 
 # ╔═╡ daa92e6c-14a9-4f6d-b27c-a0c3acc71b8b
 let
@@ -206,10 +206,10 @@ There are two common ways to represent text in Julia. Strings and characters.
 """
 
 # ╔═╡ 5b1d25f3-c3c4-4f6f-8f95-1346502dc5f0
-
+s1 = "Hello world"
 
 # ╔═╡ 028698d3-3402-43b9-9aae-9f5f19dba623
-
+s2 = """Hello world"""
 
 # ╔═╡ f869855c-680d-4573-9a0e-4f11a9cf0d9a
 
@@ -229,7 +229,7 @@ You might be wondering why we didn't just use single-quotes to take away the amb
 """
 
 # ╔═╡ 073cc50d-eb4f-4fd8-b01f-eaeeaf4ab13b
-
+s4 = 'a'
 
 # ╔═╡ 76fbfd97-a15f-41e0-91b9-9b3ecd9caeed
 
@@ -246,11 +246,17 @@ Then use the type constructor itself (e.g. `Int64`) to convert `days` to the sma
 # ╔═╡ e9810f53-c58b-421a-962a-c5e6275da04e
 days = 252
 
-# ╔═╡ d1ddc739-7f88-4295-bc56-d40174eb650e
-
-
 # ╔═╡ 0072b42a-a17c-4035-a284-684b48d51483
+typeof(days)
 
+# ╔═╡ b62c0f90-805b-41e2-9c25-04bd507ecde2
+days_float = convert(Float64, days)
+
+# ╔═╡ 4d0cda66-f60d-466a-8488-1ce0df4a5718
+typeof(days_float)
+
+# ╔═╡ b1275634-060f-4b8c-b091-0b604ba371fe
+Int16(days)
 
 # ╔═╡ 0e03b7cc-4a34-44d6-b567-bffd6dd3b879
 md"""
@@ -264,7 +270,13 @@ Try to convert the string of numbers below to an integer using `convert()`.
 nums = "1234"
 
 # ╔═╡ 8ef119c8-a812-45b1-b552-9a0509f2b15e
+nums
 
+# ╔═╡ f8377880-eb6c-477b-b079-c8ab5f149ff9
+nums_int = parse(Int64,nums)
+
+# ╔═╡ c89f9b32-f6b5-4bb6-aef9-5619cff029fe
+typeof(nums_int)
 
 # ╔═╡ 5bea5fea-c12f-45ea-9b13-02d8f9ce8810
 md"""
@@ -283,7 +295,7 @@ num_fingers = 10
 num_toes = 10
 
 # ╔═╡ b8a37d04-62c8-4144-a389-29e0458e7c1b
-
+"Hi I'm $name and I have $(num_fingers + num_toes) digits"
 
 # ╔═╡ 9b500b3c-9a7b-48e0-af69-65807fe9e77c
 md"""
@@ -299,6 +311,11 @@ So called `begin` blocks can include any number of subexpressions, and are allow
 """
 
 # ╔═╡ 5b624e7d-e420-4aad-bf7e-0817b73c0e01
+begin 
+	empty_seats = 50
+	filled_seats = 11
+	total_seats = empty_seats + filled_seats
+end
 
 
 # ╔═╡ d96242c0-f9af-4c80-b6d4-395915d7c4e4
@@ -307,7 +324,7 @@ md"""
 """
 
 # ╔═╡ c4517e92-b388-4f85-800a-e06bd1aae363
-
+empty = 50; filled = 11; total = empty + filled
 
 # ╔═╡ 0b19ea0a-09c2-4d7d-b207-7b8d1504896e
 md"""
@@ -315,7 +332,11 @@ What is most interesting about compound expressions is that they evaluate to a s
 """
 
 # ╔═╡ 7bfeee9c-7f4c-4e11-8d20-bd48e86e955e
-
+total_price = begin
+	item_exvat = 19.9
+	vat = 0.1
+	total_p = item_exvat + vat
+end 
 
 # ╔═╡ ef5dd965-e329-4fc6-b09a-a2dee7456954
 md"""
@@ -323,7 +344,7 @@ Variables both inside and outside the compound expression are available for use 
 """
 
 # ╔═╡ 66d76b16-01e1-4e46-b56f-4bd6b4329774
-
+total_price == total_p
 
 # ╔═╡ 68c9209e-3cde-40dd-a3d4-dba8c649c2a5
 md"""
@@ -364,20 +385,48 @@ Scale the recipe for four people and calculate the total amount of dry and wet i
 
 # ╔═╡ 4cd71906-1c8c-4ae1-ae18-e18fdaa1f5ab
 ## YOUR CODE GOES HERE
+dry_ingred = let 
+	flour = 150 / 6 * 4
+	sugar = 50 / 6 * 4
+	powder = 5 / 6 * 4
+	dry_ingred = flour + sugar + powder 
+end 
+
+# ╔═╡ ea89a959-4ec7-499b-8850-2a8da4d39c3f
+wet_ingred = let 
+	milk = 240 / 6 * 4
+	egg = 60 / 6 * 4
+	butter = 30 / 6 * 4
+	wet_ingred = milk + egg + butter 
+end
+
+# ╔═╡ 29f1f37e-732e-4f33-b262-96b5da8a9ed7
+
+
+# ╔═╡ cb15ebd0-5580-4b98-b116-df3d58833eca
+# ╠═╡ disabled = true
+#=╠═╡
+y = 3.0
+  ╠═╡ =#
+
+# ╔═╡ 3cefca52-2075-48b7-9835-4fc9f79e332d
+y = 6.0
 
 # ╔═╡ Cell order:
 # ╟─e22c1412-cf4c-11ee-1b2b-f98109dfd08f
 # ╟─1c199569-414f-467f-b68a-006c6c10eadc
 # ╠═fc8b2f88-77a6-4a84-91a1-3efbd0e92317
+# ╠═1c1efd7a-a4c1-4ed3-8089-856dbe5b980d
 # ╟─c964fe22-b644-460c-8960-ec66abeb36ff
 # ╠═013179fa-3e31-4527-92d0-5c725e56b619
 # ╠═78ea3d9b-9273-4aa4-b5b7-5eb8154ea5ab
 # ╟─e452dcb5-b3da-4388-8f7f-1dd02ec48e8c
 # ╠═03b72a74-3428-40b7-94ac-fefe8d613aae
 # ╠═71473247-35ee-4bed-95a6-e34162c9fcf2
-# ╠═410611f5-8d46-4272-9a5b-4daf3705afeb
+# ╠═fef50a59-fab0-4728-a08b-097c37ed3d01
 # ╠═8165649a-746b-48d3-a86e-8b100c4b2c08
 # ╠═37f732d0-d24f-4e91-8c73-4b7ecfe0c6fe
+# ╠═08e8e8c1-b69c-4717-a71f-9ba815e29bb5
 # ╠═cb15ebd0-5580-4b98-b116-df3d58833eca
 # ╠═791aa777-d195-434f-ab57-599f4d771d4f
 # ╠═5f3bf493-96e4-47c4-a788-8d932f286886
@@ -389,7 +438,7 @@ Scale the recipe for four people and calculate the total amount of dry and wet i
 # ╟─ae162d4b-d83f-4dd1-a6fc-742cd8e144be
 # ╠═b0c59c61-2f7d-47bd-9082-bcdd44fe6140
 # ╠═da18109b-dc2b-4c13-9c4b-65909928f4e1
-# ╟─cf422c68-f253-46ba-ba11-08b204e4038d
+# ╠═cf422c68-f253-46ba-ba11-08b204e4038d
 # ╟─3d345507-5512-4a56-89ce-6bbd424744ed
 # ╠═62331f66-fca5-49de-8d17-88b2180fb639
 # ╠═baa6e805-727d-4846-aaae-59b21ce9637e
@@ -407,17 +456,21 @@ Scale the recipe for four people and calculate the total amount of dry and wet i
 # ╠═028698d3-3402-43b9-9aae-9f5f19dba623
 # ╠═f869855c-680d-4573-9a0e-4f11a9cf0d9a
 # ╠═6300060a-78ed-45ba-ad20-4a09fba03ba7
-# ╟─6a024b42-2dd2-4adb-94bb-d8d526c137eb
+# ╠═6a024b42-2dd2-4adb-94bb-d8d526c137eb
 # ╟─78605c79-0ed0-4b4d-9f6a-ef73d9334546
 # ╠═073cc50d-eb4f-4fd8-b01f-eaeeaf4ab13b
 # ╠═76fbfd97-a15f-41e0-91b9-9b3ecd9caeed
 # ╟─4422a84a-c814-46b6-8fbb-b0ea3aaccbc3
 # ╠═e9810f53-c58b-421a-962a-c5e6275da04e
-# ╠═d1ddc739-7f88-4295-bc56-d40174eb650e
 # ╠═0072b42a-a17c-4035-a284-684b48d51483
+# ╠═b62c0f90-805b-41e2-9c25-04bd507ecde2
+# ╠═4d0cda66-f60d-466a-8488-1ce0df4a5718
+# ╠═b1275634-060f-4b8c-b091-0b604ba371fe
 # ╟─0e03b7cc-4a34-44d6-b567-bffd6dd3b879
 # ╠═2b0ed67b-27f3-4ce1-9da8-9f490098262d
 # ╠═8ef119c8-a812-45b1-b552-9a0509f2b15e
+# ╠═f8377880-eb6c-477b-b079-c8ab5f149ff9
+# ╠═c89f9b32-f6b5-4bb6-aef9-5619cff029fe
 # ╟─5bea5fea-c12f-45ea-9b13-02d8f9ce8810
 # ╠═49148636-6115-42ea-b7ae-231ae1ef5845
 # ╠═c6e6dd96-a743-4bf3-a36d-e5ea95a2b874
@@ -437,3 +490,5 @@ Scale the recipe for four people and calculate the total amount of dry and wet i
 # ╠═09eca0ae-d542-4f2e-968a-d0c2778ad244
 # ╟─cb7aee24-e37e-4341-ae7f-0435456b8d4b
 # ╠═4cd71906-1c8c-4ae1-ae18-e18fdaa1f5ab
+# ╠═ea89a959-4ec7-499b-8850-2a8da4d39c3f
+# ╠═29f1f37e-732e-4f33-b262-96b5da8a9ed7

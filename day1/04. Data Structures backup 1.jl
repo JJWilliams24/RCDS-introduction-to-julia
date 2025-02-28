@@ -52,7 +52,7 @@ Syntax:
 """
 
 # ╔═╡ f2411031-e042-495c-b2fd-e6b3499e1464
-animals = ("cats","dogs","birds")
+
 
 # ╔═╡ 9df3caa6-fe69-43f5-8b4f-28aea7cce305
 
@@ -63,7 +63,7 @@ We can index into a tuple
 """
 
 # ╔═╡ 8cfed49d-c553-4b63-b1a6-530feee76c32
-animals[1]
+
 
 # ╔═╡ 1c0cf3b2-4968-4456-9c70-ea6b041b627e
 md"""
@@ -71,8 +71,7 @@ But since they are immutable, we can't update them.
 """
 
 # ╔═╡ 544c53c1-f14c-40ca-bba5-34fc7dcde3d3
-#Cannot do the below 
-#animals[2] = "cats"
+
 
 # ╔═╡ 650bac1d-afeb-445e-a99c-74531ced9509
 
@@ -96,7 +95,7 @@ As you might guess, a `NamedTuple` is just like a `Tuple` except that each eleme
 """
 
 # ╔═╡ f09d5c83-8481-4f28-9563-10f8b7c6448b
-animals_by_type = (dog = "golden", bird = "jay", spider = "house")
+
 
 # ╔═╡ 0461a502-bc97-4e79-9614-a1549ef3dd98
 md"""
@@ -104,7 +103,7 @@ Like regular `Tuples`, `NamedTuples` are ordered, so we can retrieve their eleme
 """
 
 # ╔═╡ 89005bd8-4fd4-49f9-94fa-14f6f5a639ec
-animals_by_type[2]
+
 
 # ╔═╡ fdb43c68-6b07-42c2-a2e1-7bd0ec3f5801
 md"""
@@ -112,7 +111,7 @@ But they come with the advantage of being able to access values by their name, u
 """
 
 # ╔═╡ 7508e09d-ca7a-4f77-94c3-f2f627106771
-animals_by_type.dog
+
 
 # ╔═╡ 4a0f73d5-458b-4764-a12e-35becb935732
 md"""
@@ -129,7 +128,7 @@ A good example is a contacts list, where we associate names with phone numbers.
 """
 
 # ╔═╡ 15654f58-7dd2-45f9-b6c4-d2efe82c81aa
-phonebook = Dict("Jay" => "080", "Yiannis" => "020")
+phonebook = Dict()
 
 # ╔═╡ f80fca09-4254-4994-aa12-557aeb75b723
 md"""
@@ -137,7 +136,7 @@ In this example, each name is a **key** and each number is a **value**. Often ca
 """
 
 # ╔═╡ 2ca467e7-89ce-48bb-a92b-ebea1bde9be8
-phonebook["Jay"]
+
 
 # ╔═╡ bf69d093-d29e-4cfd-a860-df186f09c919
 md"""
@@ -145,7 +144,7 @@ We can add new entries to a dictionary by assigning a value to a new key.
 """
 
 # ╔═╡ ec9cd9be-94da-405e-82f7-f4ab90e47b7e
-phonebook["ECRI"] = "090"
+
 
 # ╔═╡ 0f848cd7-59c1-42df-9983-c021660a6d81
 md"""
@@ -161,7 +160,7 @@ We can delete Yiannis' number from our contact list - and simultaenously grab hi
 """
 
 # ╔═╡ c2e61322-57f1-42c3-a793-6d350bef11b2
-jay = pop!(phonebook,"Jay")
+
 
 # ╔═╡ edae592b-273a-4c2d-94e0-473384ec8a23
 phonebook
@@ -202,10 +201,6 @@ Why doesn't this work?
 
 # ╔═╡ 188b63d5-7e37-450f-883c-a694a9ff7803
 ## TRY IT OUT HERE
-phonebook["Emergency"] = "911"
-
-# ╔═╡ 9c20cd87-3992-440a-a84d-cb99af4526d3
-phonebook
 
 # ╔═╡ 085e3084-639a-417f-ac9a-b79fe7e310b8
 md"""
@@ -218,7 +213,6 @@ What does the `type` of this new dictionary tell you? Compare its type with that
 
 # ╔═╡ 3a22833c-3a27-4977-8dca-37d79c0cda01
 ## YOUR CODE GOES HERE
-flexible_phonebook = Dict("Jenny" => 9671111, "Ghostbusters" => "1-800-GHOSTS")
 
 # ╔═╡ 61056783-ade1-4b71-bee1-956e7e3173f8
 
@@ -243,10 +237,10 @@ For example, we might create an array to keep track of pokemon
 """
 
 # ╔═╡ 54242790-e509-47a4-827d-51b92782a348
-pokemon = ["Bulbasaur","Squirtle","Charmander"]
+
 
 # ╔═╡ dafe9fb9-ee8a-4457-ad59-2b448bb2dab3
-typeof(pokemon)
+
 
 # ╔═╡ 77cb3556-1260-4d22-b0b4-cfa5ed77182a
 md"""
@@ -267,13 +261,13 @@ Once we have an array, we can grab individual pieces of data from inside that ar
 """
 
 # ╔═╡ b8c7dacd-eed2-42ce-955b-e939841ecb72
-pokemon[3]
+
 
 # ╔═╡ 705716bb-4081-46a5-a8f6-5f17c8fe2174
-pokemon[3] = "Mewtwo"
+
 
 # ╔═╡ 78ad482c-9d1e-4a55-ab20-4567f0e13542
-pokemon
+
 
 # ╔═╡ 0b07b4e6-cc0c-4883-b225-368e8a6d010a
 md"""
@@ -285,13 +279,13 @@ We can add another number to our fibonnaci sequence
 """
 
 # ╔═╡ a7b04b21-b1c7-4d98-a82c-6f01c9dea713
-push!(fibonacci,21)
+
 
 # ╔═╡ f83f093e-8874-470f-a0bb-d9155bbf095c
-pop!(fibonacci)
+
 
 # ╔═╡ a8bf1c9c-2b60-4e7f-bcf6-1ddf421da49f
-fibonacci
+
 
 # ╔═╡ bb5e28e4-f2c8-4523-ab8d-dde2ea17663d
 md"""
@@ -319,7 +313,7 @@ We index twice to get at a individual value in the above:
 """
 
 # ╔═╡ 4b93ee2e-804b-433c-a1f3-0fa1974cc1b6
-nums[3][4]
+
 
 # ╔═╡ af90beef-3d90-4aef-93e9-94a261b32318
 md"""
@@ -349,7 +343,7 @@ random = begin
 end
 
 # ╔═╡ a03727d1-c807-4af5-bead-21d4b51ec62f
-sort!(random)
+
 
 # ╔═╡ 606af175-6429-4d1f-88fe-e7419eea430e
 let
@@ -374,17 +368,13 @@ Be careful when you want to copy arrays!
 fibonacci
 
 # ╔═╡ c417bb33-3feb-438c-b087-38fa44449dc5
-fib = fibonacci
+
 
 # ╔═╡ 73a732a1-907e-41e7-8b8f-cd26364b2c55
-fib[1] = 404
+
 
 # ╔═╡ 004f455d-b11b-421e-bc83-4148e798ad03
-fibonacci
 
-# ╔═╡ 10901dea-dbcc-4cd9-952e-fda810b31604
-#turning fibonacci back
-fib[1] = 1
 
 # ╔═╡ a0b04992-7e2c-4ca0-975a-c70528a26cb8
 md"""
@@ -401,13 +391,13 @@ First, let's restore `fibonacci`, then create and edit the copy.
 fibonacci[1] = 1
 
 # ╔═╡ c860617c-ea49-40b1-8e8d-32a478bcd987
-fi = copy(fibonacci)
+
 
 # ╔═╡ bbfa6fcb-149f-43d4-b3f4-e126e955b909
-#fi[1] = 404
+
 
 # ╔═╡ 7ff74fc3-1512-41c8-aa60-4f61b81b77a9
-fibonacci
+
 
 # ╔═╡ 3e765e39-18f9-4f4f-a4b8-eaa1c59bb45b
 md"""
@@ -425,19 +415,13 @@ Let's get more creative with our indexing and see ways we can access multiple el
 squares = [1, 4, 9, 16, 25, 36, 49, 64]
 
 # ╔═╡ d1e43367-96ae-4754-99fb-cd9258bd8b4d
-squares[1:4]
+
 
 # ╔═╡ ba10f1ba-956a-45bc-a06e-8b8f9ede1acd
-squares[4:end]
+
 
 # ╔═╡ a43e75a4-8c24-4623-8716-a47e7c2525a9
-squares[begin:end]
 
-# ╔═╡ d45731fb-2161-4741-9f43-4dc1543c78b5
-squares[begin:2:end]
-
-# ╔═╡ d707041e-17ac-4773-87cb-b7552e935278
-squares[end:-1:begin]
 
 # ╔═╡ c117cd08-dd9c-46d2-974b-335ea38c6784
 md"""
@@ -449,7 +433,7 @@ If, instead of commas, we use spaces, then the values are concatenated horizonta
 cubes = [1, 8, 27, 64, 125, 216, 343, 512]
 
 # ╔═╡ 7d551676-60ed-4db3-b06f-4918ec10cd89
-cubic = [1 8 27 64]
+
 
 # ╔═╡ 8a0b257f-c5ae-4ca1-bbc7-649458799a13
 
@@ -463,7 +447,7 @@ Spaces can concatenate same-length vectors to form matrices.
 """
 
 # ╔═╡ eb924bd7-4747-42c6-a923-12581fa80871
-powers = [1:8 squares cubes]
+
 
 # ╔═╡ 5bcfe701-f64e-4d5e-a993-f9e4ed8bcf27
 md"""
@@ -471,15 +455,13 @@ Matrices and multidimensional arrays are indexed in a single operation, with dim
 """
 
 # ╔═╡ 92b86675-421a-435c-be62-479e7d58208e
-powers[4, 2]
+
 
 # ╔═╡ a557b211-5607-4e77-92eb-ceb78eeff6c3
-#To get all rows of column 3
-powers[:, 3]
+
 
 # ╔═╡ e5f5ff4f-ffe0-4824-9b03-c2718babf159
-#To get all the columns of row 7
-powers[7, :]
+
 
 # ╔═╡ 80bf7b5e-08f9-47c5-b293-a5c00dbe5cac
 md"""
@@ -487,8 +469,7 @@ Semicolons perform vertical concatenation:
 """
 
 # ╔═╡ 24e925e4-3ec9-43cb-92a0-00912eedc858
-#To join vectors and get a single vector
-[squares; cubes]
+
 
 # ╔═╡ 7b5e51e5-130a-41a6-ae61-2621da554a08
 md"""
@@ -496,7 +477,7 @@ Compared with commas, which would just create an array of arrays:
 """
 
 # ╔═╡ 1dc8a02e-9599-418a-8bf6-4548e904523c
-[squares, cubes]
+
 
 # ╔═╡ c02284a6-82cd-41e1-9000-ba971b8c7891
 md"""
@@ -528,7 +509,7 @@ will give you an output array where the function `f` has been applied to all ele
 square_it(x) = x ^ 2
 
 # ╔═╡ 05c7af21-6c87-424d-af89-56b9d99987dc
-map(square_it, [1, 2, 3])
+
 
 # ╔═╡ 4540f7c6-288e-4f44-9add-11f88de8a802
 md"""
@@ -538,7 +519,7 @@ We could have instead passed an anonymous function to `map`, and this is a fairl
 """
 
 # ╔═╡ 34bbd4d9-d07e-4f4f-9533-e00966ec7135
-map(x -> x ^ 3, 1:3)
+
 
 # ╔═╡ cbcde109-b060-410e-be39-05d678e4f469
 md"""
@@ -566,7 +547,7 @@ f.([1, 2, 3])
 """
 
 # ╔═╡ 6339ff76-19c6-461b-bb45-06aac117bd91
-square_it.([1, 2, 3])
+
 
 # ╔═╡ cdcf5329-cbcd-4690-b94d-ed91ffae6919
 md"""
@@ -592,7 +573,7 @@ for a matrix `A`:
 A = [i + 3*j for j in 0:2, i in 1:3]
 
 # ╔═╡ 24b49af6-fa80-42a2-a7ce-60ec390911ab
-square_it(A)
+
 
 # ╔═╡ 805f2c03-6eac-489a-96c6-274076aeb749
 md"""
@@ -605,7 +586,7 @@ On the other hand,
 """
 
 # ╔═╡ ef5c4890-2a63-47d1-a23e-f672a695fa18
-square_it.(A)
+
 
 # ╔═╡ 5343b9a6-8d22-4ee9-bbc8-1c5fc4a3191e
 md"""
@@ -616,9 +597,6 @@ This dot syntax for broadcasting allows us to write relatively complex compound 
 
 # ╔═╡ e78cf67b-0199-4fbd-a0b3-8471f70c0935
 A .+ 2 .* square_it.(A) ./ A
-
-# ╔═╡ be2bab52-4fa1-409d-90cd-7972cd6beada
-A .+ 2
 
 # ╔═╡ 667b7172-38a0-43bf-8a21-6f83089e70ef
 md"""
@@ -636,7 +614,7 @@ md"""
 """
 
 # ╔═╡ f5e3f509-28c6-4ce4-893c-98d9d5a29f24
-A1 = (A .+ 2) # TODO use a higher order function
+A1 = [] # TODO use a higher order function
 
 # ╔═╡ ff1eecad-a82e-434a-a1f5-4d6e2c3bcf2e
 if A1 == [3 4 5; 6 7 8; 9 10 11]
@@ -650,7 +628,7 @@ md"""
 """
 
 # ╔═╡ 0396b6a4-5eb6-4720-98a6-3fad66f64bad
-A2 = ((A .+ 1) .* 3) # TODO use dot broadcast
+A2 = [] # TODO use dot broadcast
 
 # ╔═╡ 2f6d22e7-ec13-4062-8c65-ba42655df4ae
 if A2 == [12 15 18; 21 24 27; 30 33 36]
@@ -658,296 +636,6 @@ if A2 == [12 15 18; 21 24 27; 30 33 36]
 	$(Markdown.MD(Markdown.Admonition("correct", "Well done!!", [])))"""
 end
 
-
-# ╔═╡ 00000000-0000-0000-0000-000000000001
-PLUTO_PROJECT_TOML_CONTENTS = """
-[deps]
-PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-
-[compat]
-PlutoUI = "~0.7.61"
-"""
-
-# ╔═╡ 00000000-0000-0000-0000-000000000002
-PLUTO_MANIFEST_TOML_CONTENTS = """
-# This file is machine-generated - editing it directly is not advised
-
-julia_version = "1.11.3"
-manifest_format = "2.0"
-project_hash = "6d1b77f27e79835fc27b2d7e99ab8fcaf37aa976"
-
-[[deps.AbstractPlutoDingetjes]]
-deps = ["Pkg"]
-git-tree-sha1 = "6e1d2a35f2f90a4bc7c2ed98079b2ba09c35b83a"
-uuid = "6e696c72-6542-2067-7265-42206c756150"
-version = "1.3.2"
-
-[[deps.ArgTools]]
-uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
-version = "1.1.2"
-
-[[deps.Artifacts]]
-uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
-version = "1.11.0"
-
-[[deps.Base64]]
-uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
-version = "1.11.0"
-
-[[deps.ColorTypes]]
-deps = ["FixedPointNumbers", "Random"]
-git-tree-sha1 = "b10d0b65641d57b8b4d5e234446582de5047050d"
-uuid = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
-version = "0.11.5"
-
-[[deps.CompilerSupportLibraries_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
-version = "1.1.1+0"
-
-[[deps.Dates]]
-deps = ["Printf"]
-uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
-version = "1.11.0"
-
-[[deps.Downloads]]
-deps = ["ArgTools", "FileWatching", "LibCURL", "NetworkOptions"]
-uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
-version = "1.6.0"
-
-[[deps.FileWatching]]
-uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
-version = "1.11.0"
-
-[[deps.FixedPointNumbers]]
-deps = ["Statistics"]
-git-tree-sha1 = "05882d6995ae5c12bb5f36dd2ed3f61c98cbb172"
-uuid = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
-version = "0.8.5"
-
-[[deps.Hyperscript]]
-deps = ["Test"]
-git-tree-sha1 = "179267cfa5e712760cd43dcae385d7ea90cc25a4"
-uuid = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
-version = "0.0.5"
-
-[[deps.HypertextLiteral]]
-deps = ["Tricks"]
-git-tree-sha1 = "7134810b1afce04bbc1045ca1985fbe81ce17653"
-uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
-version = "0.9.5"
-
-[[deps.IOCapture]]
-deps = ["Logging", "Random"]
-git-tree-sha1 = "b6d6bfdd7ce25b0f9b2f6b3dd56b2673a66c8770"
-uuid = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
-version = "0.2.5"
-
-[[deps.InteractiveUtils]]
-deps = ["Markdown"]
-uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
-version = "1.11.0"
-
-[[deps.JSON]]
-deps = ["Dates", "Mmap", "Parsers", "Unicode"]
-git-tree-sha1 = "31e996f0a15c7b280ba9f76636b3ff9e2ae58c9a"
-uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
-version = "0.21.4"
-
-[[deps.LibCURL]]
-deps = ["LibCURL_jll", "MozillaCACerts_jll"]
-uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
-version = "0.6.4"
-
-[[deps.LibCURL_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll", "Zlib_jll", "nghttp2_jll"]
-uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
-version = "8.6.0+0"
-
-[[deps.LibGit2]]
-deps = ["Base64", "LibGit2_jll", "NetworkOptions", "Printf", "SHA"]
-uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
-version = "1.11.0"
-
-[[deps.LibGit2_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll"]
-uuid = "e37daf67-58a4-590a-8e99-b0245dd2ffc5"
-version = "1.7.2+0"
-
-[[deps.LibSSH2_jll]]
-deps = ["Artifacts", "Libdl", "MbedTLS_jll"]
-uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
-version = "1.11.0+1"
-
-[[deps.Libdl]]
-uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
-version = "1.11.0"
-
-[[deps.LinearAlgebra]]
-deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
-uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-version = "1.11.0"
-
-[[deps.Logging]]
-uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
-version = "1.11.0"
-
-[[deps.MIMEs]]
-git-tree-sha1 = "1833212fd6f580c20d4291da9c1b4e8a655b128e"
-uuid = "6c6e2e6c-3030-632d-7369-2d6c69616d65"
-version = "1.0.0"
-
-[[deps.Markdown]]
-deps = ["Base64"]
-uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
-version = "1.11.0"
-
-[[deps.MbedTLS_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
-version = "2.28.6+0"
-
-[[deps.Mmap]]
-uuid = "a63ad114-7e13-5084-954f-fe012c677804"
-version = "1.11.0"
-
-[[deps.MozillaCACerts_jll]]
-uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
-version = "2023.12.12"
-
-[[deps.NetworkOptions]]
-uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
-version = "1.2.0"
-
-[[deps.OpenBLAS_jll]]
-deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
-uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
-version = "0.3.27+1"
-
-[[deps.Parsers]]
-deps = ["Dates", "PrecompileTools", "UUIDs"]
-git-tree-sha1 = "8489905bcdbcfac64d1daa51ca07c0d8f0283821"
-uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.8.1"
-
-[[deps.Pkg]]
-deps = ["Artifacts", "Dates", "Downloads", "FileWatching", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "Random", "SHA", "TOML", "Tar", "UUIDs", "p7zip_jll"]
-uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
-version = "1.11.0"
-
-    [deps.Pkg.extensions]
-    REPLExt = "REPL"
-
-    [deps.Pkg.weakdeps]
-    REPL = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
-
-[[deps.PlutoUI]]
-deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
-git-tree-sha1 = "7e71a55b87222942f0f9337be62e26b1f103d3e4"
-uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.61"
-
-[[deps.PrecompileTools]]
-deps = ["Preferences"]
-git-tree-sha1 = "5aa36f7049a63a1528fe8f7c3f2113413ffd4e1f"
-uuid = "aea7be01-6a6a-4083-8856-8a6e6704d82a"
-version = "1.2.1"
-
-[[deps.Preferences]]
-deps = ["TOML"]
-git-tree-sha1 = "9306f6085165d270f7e3db02af26a400d580f5c6"
-uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.4.3"
-
-[[deps.Printf]]
-deps = ["Unicode"]
-uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
-version = "1.11.0"
-
-[[deps.Random]]
-deps = ["SHA"]
-uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
-version = "1.11.0"
-
-[[deps.Reexport]]
-git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
-uuid = "189a3867-3050-52da-a836-e630ba90ab69"
-version = "1.2.2"
-
-[[deps.SHA]]
-uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
-version = "0.7.0"
-
-[[deps.Serialization]]
-uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
-version = "1.11.0"
-
-[[deps.Statistics]]
-deps = ["LinearAlgebra"]
-git-tree-sha1 = "ae3bb1eb3bba077cd276bc5cfc337cc65c3075c0"
-uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
-version = "1.11.1"
-
-    [deps.Statistics.extensions]
-    SparseArraysExt = ["SparseArrays"]
-
-    [deps.Statistics.weakdeps]
-    SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
-
-[[deps.TOML]]
-deps = ["Dates"]
-uuid = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
-version = "1.0.3"
-
-[[deps.Tar]]
-deps = ["ArgTools", "SHA"]
-uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
-version = "1.10.0"
-
-[[deps.Test]]
-deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
-uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-version = "1.11.0"
-
-[[deps.Tricks]]
-git-tree-sha1 = "6cae795a5a9313bbb4f60683f7263318fc7d1505"
-uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-version = "0.1.10"
-
-[[deps.URIs]]
-git-tree-sha1 = "67db6cc7b3821e19ebe75791a9dd19c9b1188f2b"
-uuid = "5c2747f8-b7ea-4ff2-ba2e-563bfd36b1d4"
-version = "1.5.1"
-
-[[deps.UUIDs]]
-deps = ["Random", "SHA"]
-uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
-version = "1.11.0"
-
-[[deps.Unicode]]
-uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
-version = "1.11.0"
-
-[[deps.Zlib_jll]]
-deps = ["Libdl"]
-uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
-version = "1.2.13+1"
-
-[[deps.libblastrampoline_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
-version = "5.11.0+0"
-
-[[deps.nghttp2_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
-version = "1.59.0+0"
-
-[[deps.p7zip_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
-version = "17.4.0+2"
-"""
 
 # ╔═╡ Cell order:
 # ╟─02950a3c-bc01-49f5-86f3-873a024e00d9
@@ -983,7 +671,6 @@ version = "17.4.0+2"
 # ╟─74f7b1ec-1116-43d6-8f55-3c3535d11700
 # ╟─0c6e94a8-b271-4c08-9bef-a3f82389fb9e
 # ╠═188b63d5-7e37-450f-883c-a694a9ff7803
-# ╠═9c20cd87-3992-440a-a84d-cb99af4526d3
 # ╟─085e3084-639a-417f-ac9a-b79fe7e310b8
 # ╠═3a22833c-3a27-4977-8dca-37d79c0cda01
 # ╠═61056783-ade1-4b71-bee1-956e7e3173f8
@@ -1020,7 +707,6 @@ version = "17.4.0+2"
 # ╠═c417bb33-3feb-438c-b087-38fa44449dc5
 # ╠═73a732a1-907e-41e7-8b8f-cd26364b2c55
 # ╠═004f455d-b11b-421e-bc83-4148e798ad03
-# ╠═10901dea-dbcc-4cd9-952e-fda810b31604
 # ╟─a0b04992-7e2c-4ca0-975a-c70528a26cb8
 # ╠═768909de-9516-4b9a-ba15-f3310c6c1f39
 # ╠═c860617c-ea49-40b1-8e8d-32a478bcd987
@@ -1032,8 +718,6 @@ version = "17.4.0+2"
 # ╠═d1e43367-96ae-4754-99fb-cd9258bd8b4d
 # ╠═ba10f1ba-956a-45bc-a06e-8b8f9ede1acd
 # ╠═a43e75a4-8c24-4623-8716-a47e7c2525a9
-# ╠═d45731fb-2161-4741-9f43-4dc1543c78b5
-# ╠═d707041e-17ac-4773-87cb-b7552e935278
 # ╟─c117cd08-dd9c-46d2-974b-335ea38c6784
 # ╠═849bea4f-33ac-454b-a852-ee9fc4b572c3
 # ╠═7d551676-60ed-4db3-b06f-4918ec10cd89
@@ -1067,7 +751,6 @@ version = "17.4.0+2"
 # ╠═ef5c4890-2a63-47d1-a23e-f672a695fa18
 # ╟─5343b9a6-8d22-4ee9-bbc8-1c5fc4a3191e
 # ╠═e78cf67b-0199-4fbd-a0b3-8471f70c0935
-# ╠═be2bab52-4fa1-409d-90cd-7972cd6beada
 # ╟─667b7172-38a0-43bf-8a21-6f83089e70ef
 # ╠═2903d387-4a2b-4f4a-ab35-cfe51c101464
 # ╟─ae91f504-a8ad-4122-9367-954a5e5fd5bf

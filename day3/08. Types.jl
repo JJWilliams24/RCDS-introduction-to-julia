@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.38
+# v0.20.4
 
 using Markdown
 using InteractiveUtils
@@ -31,13 +31,14 @@ The :: operator can be used to attach type annotations to expressions and variab
 """
 
 # ╔═╡ 3564b2ef-aae2-472d-9a0a-330ecb64c4de
-
+(1 + 2) :: Int
 
 # ╔═╡ 3be0f096-3b68-47a2-9a03-77e85d7d055b
-
+(1 + 2) :: Int64
 
 # ╔═╡ c132827d-c21d-46d4-9716-e9e91b096366
-
+# The below won't work
+#(1 + 2) :: Float64
 
 # ╔═╡ 07797d51-f73e-49d2-be78-9c4bb1be6f29
 md"""
@@ -50,7 +51,11 @@ Composite types are a special type that can store multiple independent pieces of
 """
 
 # ╔═╡ fc65815f-563a-4465-b442-86893b38eb28
-
+struct Person
+	age :: Int
+	name :: String
+	hobby
+end 
 
 # ╔═╡ f3f00241-1bd9-47dd-a4e2-34f9aa10fda8
 md"""
@@ -58,10 +63,10 @@ We can create an instance of a composite type like so:
 """
 
 # ╔═╡ e55abae6-c5ed-449c-9662-088397188daa
-
+jess = Person(32,"Jess","Climbing")
 
 # ╔═╡ 56a115a1-93ff-4259-8472-28091b25ce1c
-
+typeof(jess)
 
 # ╔═╡ fcfadbb8-1add-4795-bb01-4b654b6962f8
 md"""
@@ -69,7 +74,8 @@ Type annotations are enforced, so this is not allowed:
 """
 
 # ╔═╡ 2a5789c1-f3f3-4128-abf2-ef6a7776c36e
-
+# Because age is an integer, you can't case a float to it 
+#Person(32.5,"Tom","Chess")
 
 # ╔═╡ a68b3774-b3ad-4e45-b134-90ab5781059c
 md"""
@@ -77,7 +83,7 @@ You can inspect the fields of a composite type with `fieldnames`:
 """
 
 # ╔═╡ 046e1a2e-63bd-4c9f-9064-13ea3e85cc4e
-
+fieldnames(Person)
 
 # ╔═╡ 659e3bff-7c55-4836-b74b-7f9443c69325
 md"""
@@ -85,7 +91,7 @@ And can access values of a composite object using the dot notation with their fi
 """
 
 # ╔═╡ 59387139-f39c-48fa-9328-e9baf093952c
-
+jess.hobby
 
 # ╔═╡ f1df753b-2a85-4878-b1b4-8f796a815eba
 md"""
@@ -172,8 +178,14 @@ To check if an object is of a given type, we use `isa`. This check will succeed 
 # ╔═╡ 8845f1e3-3b49-41d4-b397-cb2a93bd1876
 2.0 isa Float64
 
+# ╔═╡ 0117a8d0-58e8-4a4d-85a0-0d384ddb9ef8
+2.0 isa Real
+
 # ╔═╡ 8bb749c2-a87e-4489-90b2-d9145ea54abc
 2.0 isa Number
+
+# ╔═╡ c7c7944d-6008-4a98-8d22-570e400703d7
+2.0 isa Any
 
 # ╔═╡ a994bf80-8ade-4052-8c69-f57f21962e55
 md"""
@@ -188,6 +200,9 @@ Float64 <: AbstractFloat
 # ╔═╡ 7971e53c-87a0-4a28-a879-622bea8c12f5
 Float64 <: Real
 
+# ╔═╡ 68385cb4-fdf7-4bdb-b0db-7d75a88e7d47
+Real <: Any
+
 # ╔═╡ 51d08a42-0974-474b-8b3c-678aaffd8dcb
 md"""
 ## Defining types with parameters
@@ -196,7 +211,13 @@ When defining a composite type, we can specify parameters. This gives you more f
 """
 
 # ╔═╡ 19b99788-9cfb-4700-b880-4a52bfc4fd67
-
+#Define parameters using curly braces
+#T is a placeholder for a type
+#But T can be any type as long as it is a Real number
+struct GenericPoint{T <: Real}
+	x :: T
+	y :: T
+end 
 
 # ╔═╡ 8ab5a279-70a0-4505-8c04-fecdb54e1816
 md"""
@@ -204,16 +225,31 @@ Our point can have x and y coordinates of any `Real` type, but they must match.
 """
 
 # ╔═╡ 851a01de-ba6e-4023-9cbd-4cf0a24d0f04
-
+GenericPoint(1, 2)
+#Press the down arrow to find out more information 
+#You will see it is a generic point of integers
 
 # ╔═╡ 6ded03c4-51df-444d-b776-fe3be345c332
-
+GenericPoint(1.5, 2.3)
+#Generic point of floats
 
 # ╔═╡ 2ed03a08-67ff-41be-8073-b2a02533201f
-
+#You won't be able to make a string
+#GenericPoint("1", "2")
 
 # ╔═╡ 43d464f1-c442-4db6-baec-8d95baac572d
+#By having both x and y of type T (the same), they have to be the same, so you cannot do the blow 
 
+#GenericPoint(1.0,2)
+
+# ╔═╡ e0e8eebd-8dce-4792-a166-f7b75860cc68
+struct ExtraPoint{T <: Any}
+	x1 :: T
+	y1 :: T
+end 
+
+# ╔═╡ 7448b789-d2e9-4abe-b86a-9c1ccba2b512
+ExtraPoint("Point1", "Point2")
 
 # ╔═╡ 27ee1271-4a73-4098-a0fe-0549b1951e39
 md"""
@@ -233,6 +269,9 @@ Union{Int64, Float64}
 
 # ╔═╡ 45f0c46c-87fd-443f-bb67-5fd9d4389499
 "1.0" isa Union{Int64, Float64}
+
+# ╔═╡ cbc32111-9647-4b6b-87bc-201739b25a69
+"1.0" isa Union{Int64, Float64, String}
 
 # ╔═╡ 9192d79a-be41-48e2-88fc-3a8e7a5af29d
 md"""
@@ -296,10 +335,13 @@ IntOrString = Union{Int, AbstractString}
 # ╠═2a517739-245b-45a5-a315-7baa87132cbd
 # ╟─85f444af-6105-45a2-86aa-6ddef60e16b6
 # ╠═8845f1e3-3b49-41d4-b397-cb2a93bd1876
+# ╠═0117a8d0-58e8-4a4d-85a0-0d384ddb9ef8
 # ╠═8bb749c2-a87e-4489-90b2-d9145ea54abc
+# ╠═c7c7944d-6008-4a98-8d22-570e400703d7
 # ╟─a994bf80-8ade-4052-8c69-f57f21962e55
 # ╠═41432c5a-cf4a-43ea-9f04-ca64ef436f25
 # ╠═7971e53c-87a0-4a28-a879-622bea8c12f5
+# ╠═68385cb4-fdf7-4bdb-b0db-7d75a88e7d47
 # ╟─51d08a42-0974-474b-8b3c-678aaffd8dcb
 # ╠═19b99788-9cfb-4700-b880-4a52bfc4fd67
 # ╟─8ab5a279-70a0-4505-8c04-fecdb54e1816
@@ -307,11 +349,14 @@ IntOrString = Union{Int, AbstractString}
 # ╠═6ded03c4-51df-444d-b776-fe3be345c332
 # ╠═2ed03a08-67ff-41be-8073-b2a02533201f
 # ╠═43d464f1-c442-4db6-baec-8d95baac572d
+# ╠═e0e8eebd-8dce-4792-a166-f7b75860cc68
+# ╠═7448b789-d2e9-4abe-b86a-9c1ccba2b512
 # ╟─27ee1271-4a73-4098-a0fe-0549b1951e39
 # ╠═f790dd5c-f7c6-4557-bcb4-7afca19c11a0
 # ╠═5f039eb4-2791-4dd1-bb5d-af3bf3ba503f
 # ╠═0350e57d-9680-4ae7-8c3a-6a054c8a94ff
 # ╠═45f0c46c-87fd-443f-bb67-5fd9d4389499
+# ╠═cbc32111-9647-4b6b-87bc-201739b25a69
 # ╟─9192d79a-be41-48e2-88fc-3a8e7a5af29d
 # ╠═7293b54c-3369-446e-b741-dea6f0dadcfa
 # ╠═3919d58e-bc4e-4fcf-b4a6-06fa9130c419

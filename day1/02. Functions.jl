@@ -23,13 +23,20 @@ The first uses the `function` block. Don't forget the `end` keyword to close the
 """
 
 # ╔═╡ 41fcdb73-1fd7-4427-9121-2389fdb2c6da
-
+function say_hi(name)
+	println("Hi $name")
+end
 
 # ╔═╡ d4661b4e-90b1-4c01-8357-25cc2564b575
-
+say_hi("everyone")
 
 # ╔═╡ ac423cd7-387c-48d1-b5dd-480f6de01092
+function square_it(x)
+	x ^ 2
+end
 
+# ╔═╡ a1140a0f-cb20-4118-8975-bf6c230a1f19
+square_it(2)
 
 # ╔═╡ 8f7a82da-2553-4f63-9a65-2310c768b442
 md"""
@@ -43,7 +50,7 @@ Have a look:
 """
 
 # ╔═╡ 5cb275d2-f77c-4c41-a72c-df34109242fc
-
+square_it(3)
 
 # ╔═╡ 3df41292-8099-42ff-8037-c9992c102030
 md"""
@@ -62,7 +69,7 @@ What do we think the output of `another_square(2)` will return? Try it below.
 """
 
 # ╔═╡ cde6390c-32f9-455d-8412-b6c273a91432
-
+another_square(2)
 
 # ╔═╡ 8fe7f524-d075-4685-834f-48607d873567
 md"""
@@ -73,7 +80,7 @@ Fix the code in the cell below to make the function work as expected.
 
 # ╔═╡ 128a3167-c6ff-46e6-b4e6-47d38dfc3f1f
 function explicit_square(x)
-	x ^ 2 # TODO: Fix this line
+	return x ^ 2 # TODO: Fix this line
 	y = 10
 end
 
@@ -90,10 +97,10 @@ We could have defined the above functions like so:
 """
 
 # ╔═╡ 639a498a-877b-4b3c-9d4a-974595f70228
-
+say_hi_again(name) = println("Hi again $name")
 
 # ╔═╡ 8d9cf0df-bd73-41e5-99d0-f0d2053f57ea
-
+say_hi_again("Jess")
 
 # ╔═╡ 05e47f0e-69b2-4afc-aa56-155269a1db51
 
@@ -116,13 +123,13 @@ Anonymous functions are so called because they are not named - useful if you don
 """
 
 # ╔═╡ 75f29bba-6952-4839-be37-6aaa422ffbfc
-
+name -> println("You again... hi $name")
 
 # ╔═╡ 351ca795-7a46-4968-8435-70406e32bf93
-
+anon_hi = name -> println("You again... hi $name")
 
 # ╔═╡ ba3115af-240a-447c-be79-44604a2e6f08
-
+anon_hi("Jess")
 
 # ╔═╡ 9ca5c34a-d81c-4c32-b9a5-cbef54cba853
 
@@ -143,7 +150,19 @@ let
 end	
 
 # ╔═╡ d533671b-48b5-451a-a9ff-01443a146a8b
-# Use this cell to call your function
+function find_area(r, x)
+	area = π * r ^ 2
+	round(area, digits = x)
+end
+
+# ╔═╡ cdde5564-4ca3-47b9-99a3-550b5402ab66
+find_area(3.09,2)
+
+# ╔═╡ 6919b3a6-4933-4961-a99a-b8963f59d732
+
+
+# ╔═╡ 112aea95-8ae2-43c4-82e0-a884dcc2e52b
+find_area(3.09,2)
 
 # ╔═╡ b8b9fb7f-4e9f-4f0d-b53b-7f6b35824daf
 md"""
@@ -167,6 +186,9 @@ end
 # ╔═╡ 459a3757-f43d-4fc9-95a9-2b4ad86a6344
 ## YOUR CODE GOES HERE
 
+do_some_math(5, "to the power of 10", a -> a ^ 10)
+	
+
 # ╔═╡ b653fc4a-ecca-4366-8bcf-37d03972e222
 md"""
 3. Inspect (un-hide) the cell above that displays the documentation for `do_some_math()` to see how documentation is added to a user-defined function. Add documentation for the `say_hi()` function we defined at the top of this notebook and search for it in the *Live Docs* to see it.
@@ -184,7 +206,7 @@ For example, `say_hi()` works on this character from a popular musical.
 """
 
 # ╔═╡ d050a89c-a221-4443-9c30-2fb960a323f7
-
+say_hi(24601)
 
 # ╔═╡ 4f39208e-84bf-4f91-9970-aa61342965b5
 md"""
@@ -194,6 +216,12 @@ This is because the `*` operator is defined for string concatenation (joining st
 """
 
 # ╔═╡ fcacb276-d701-4caa-bbb8-24926a88f7f4
+square_it("Hello")
+
+# ╔═╡ 2dd06ae1-445a-4624-b2f9-c19d1b9751e6
+"Hello" * "Hello"
+
+# ╔═╡ d774d914-a7a7-4ca9-a489-a6ca96c3aee7
 
 
 # ╔═╡ 01123b4b-2112-4034-990d-d255f8a88176
@@ -214,6 +242,7 @@ We'll explore more of this when we look at multiple dispatch tomorrow.
 # ╠═41fcdb73-1fd7-4427-9121-2389fdb2c6da
 # ╠═d4661b4e-90b1-4c01-8357-25cc2564b575
 # ╠═ac423cd7-387c-48d1-b5dd-480f6de01092
+# ╠═a1140a0f-cb20-4118-8975-bf6c230a1f19
 # ╟─8f7a82da-2553-4f63-9a65-2310c768b442
 # ╠═5cb275d2-f77c-4c41-a72c-df34109242fc
 # ╟─3df41292-8099-42ff-8037-c9992c102030
@@ -236,6 +265,9 @@ We'll explore more of this when we look at multiple dispatch tomorrow.
 # ╟─b0d56dbd-17bd-411f-bb58-4525bfff0bf9
 # ╠═6926ee86-e795-457a-86fc-a7241cbe6b51
 # ╠═d533671b-48b5-451a-a9ff-01443a146a8b
+# ╠═cdde5564-4ca3-47b9-99a3-550b5402ab66
+# ╠═6919b3a6-4933-4961-a99a-b8963f59d732
+# ╠═112aea95-8ae2-43c4-82e0-a884dcc2e52b
 # ╟─b8b9fb7f-4e9f-4f0d-b53b-7f6b35824daf
 # ╟─631efa6f-c01d-4e8a-a568-075291da84e7
 # ╠═459a3757-f43d-4fc9-95a9-2b4ad86a6344
@@ -244,6 +276,8 @@ We'll explore more of this when we look at multiple dispatch tomorrow.
 # ╠═d050a89c-a221-4443-9c30-2fb960a323f7
 # ╟─4f39208e-84bf-4f91-9970-aa61342965b5
 # ╠═fcacb276-d701-4caa-bbb8-24926a88f7f4
+# ╠═2dd06ae1-445a-4624-b2f9-c19d1b9751e6
+# ╠═d774d914-a7a7-4ca9-a489-a6ca96c3aee7
 # ╟─01123b4b-2112-4034-990d-d255f8a88176
 # ╠═d91d4423-b334-4a6d-a8df-82806d1a30a2
 # ╟─15a20987-d560-429f-bc79-d67c70207382
